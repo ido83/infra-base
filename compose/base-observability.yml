@@ -1,0 +1,29 @@
+# infra-base/compose/base-observability.yml
+# Shared observability stack — plug in to any project
+
+services:
+  prometheus:
+    image: prom/prometheus:v2.51.0
+    volumes:
+      - prometheus-data:/prometheus
+    networks:
+      - monitoring-network
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:10.4.0
+    ports:
+      - "${GRAFANA_PORT:-3000}:3000"
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:-admin}
+    volumes:
+      - grafana-data:/var/lib/grafana
+    networks:
+      - monitoring-network
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+
+volumes:
+  prometheus-data:
+  grafana-data:

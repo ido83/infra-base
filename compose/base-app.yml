@@ -1,0 +1,23 @@
+# infra-base/compose/base-app.yml
+# Base service template — projects `extends` this.
+# Deliberately has NO image and NO healthcheck — each project defines its own.
+
+services:
+  app-base:
+    restart: unless-stopped
+    networks:
+      - app-network
+      - monitoring-network
+    environment:
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      ENV: ${ENV:-development}
+    deploy:
+      resources:
+        limits:
+          cpus: "${CPU_LIMIT:-0.5}"
+          memory: ${MEMORY_LIMIT:-512M}
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"

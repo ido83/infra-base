@@ -1,0 +1,12 @@
+# infra-base/compose/base-networking.yml
+# Shared network definitions — consumed by all projects.
+# These networks are created once and then reused by every environment.
+
+networks:
+  app-network:
+    external: true
+    name: app-network
+
+  monitoring-network:
+    external: true
+    name: monitoring-network
