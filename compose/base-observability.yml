@@ -15,7 +15,7 @@ services:
     ports:
       - "${GRAFANA_PORT:-3000}:3000"
     environment:
-      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:-admin}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:-__set_in_infra_base_env_dot_env_secrets__}
     volumes:
       - grafana-data:/var/lib/grafana
     networks:

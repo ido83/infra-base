@@ -2,6 +2,7 @@
 .gitignore
 .dockerignore
 .docker-config
+env/.env.secrets
 
 README.md
 LICENSE

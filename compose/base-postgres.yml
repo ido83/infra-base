@@ -6,7 +6,7 @@ services:
     image: postgres:16-alpine
     environment:
       POSTGRES_USER: ${DB_USER:-appuser}
-      POSTGRES_PASSWORD: ${DB_PASSWORD:-changeme}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-__set_in_infra_base_env_dot_env_secrets__}
       POSTGRES_DB: ${DB_NAME:-appdb}
     volumes:
       - postgres-data:/var/lib/postgresql/data
