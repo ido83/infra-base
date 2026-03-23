@@ -1,0 +1,8 @@
+title = "infra-base gitleaks config"
+
+[allowlist]
+description = "Ignore local-only secrets files"
+paths = [
+  '''^env/\.env\.secrets$''',
+  '''^env/\.env\.secrets\.example$'''
+]

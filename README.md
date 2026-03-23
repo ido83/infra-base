@@ -9,3 +9,10 @@ Contents:
 - `scripts/bootstrap-submodule.sh` helper for submodule-based setups
 
 This repo should stay generic and reusable.
+
+
+Security:
+
+- .gitleaks.toml adds a repo-local gitleaks config
+- keep env/.env.secrets local and uncommitted
+
